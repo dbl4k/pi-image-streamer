@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div>
+      <img id="webcam-image"
+           src="image:none"
+           class="webcam-image">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      setInterval(function(){
+        $(".webcam-image").attr("src", "<%= imageUrl %>?" + new Date().getTime());
+      },<%=refreshInterval%>);
+    </script>
+
+  </body>
+</html>
